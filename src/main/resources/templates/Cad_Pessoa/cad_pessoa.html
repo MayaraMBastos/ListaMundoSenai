@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="icon" href="icone.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Cadastro</title>
+</head>
+<body>
+<div style="margin-top: 10%" class="container">
+    <h1 class="text-center">Cadastro</h1>
+
+<form action="/cadastro" method="post">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="sp_nome"><i class="fa-solid fa-user"></i></span>
+        <input name="nome" id="nome" type="text" class="form-control" placeholder="Nome Completo" aria-label="Nome"
+               aria-describedby="sp_nome">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="sp_cpf"><i class="fa-solid fa-id-card"></i></span>
+        <input name="cpf" id="cpf" type="number" class="form-control" placeholder="CPF" aria-label="Cpf"
+               aria-describedby="sp_cpf">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="sp_telefone"><i class="fa-solid fa-square-phone"></i></span>
+        <input name="telefone" id="telefone" type="tel" class="form-control" placeholder="Telefone" aria-label="telefone"
+               aria-describedby="sp_telefone">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="sp_email"><i class="fa-solid fa-envelope"></i></span>
+        <input name="email" id="email" type="email" class="form-control" placeholder="E-mail" aria-label="Email"
+               aria-describedby="sp_email">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="sp_senha"><i class="fa-solid fa-key"></i></span>
+        <input name="senha" id="senha" type="password" class="form-control" placeholder="Senha" aria-label="senha"
+               aria-describedby="sp_senha">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="sp_senha2"><i class="fa-solid fa-key"></i></span>
+        <input name="senha2" id="senha2" type="password" class="form-control" placeholder="Confirme a senha" aria-label="sp_senha2"
+               aria-describedby="senha">
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <input value="Cadastrar" type="submit" class="btn btn-primary">
+        </div>
+<!--        <div class="col-sm-6 text-right">-->
+<!--            <span class="btn btn-success">Cadastre-se</span>-->
+<!--        </div>-->
+    </div>
+</form>
+</div>
+</body>
+</html>
