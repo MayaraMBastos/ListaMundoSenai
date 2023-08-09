@@ -1,7 +1,9 @@
 package com.MundoSenaiTDSN.ListaParticipantes.Service;
 
 import com.MundoSenaiTDSN.ListaParticipantes.Model.M_Pessoa;
+import com.MundoSenaiTDSN.ListaParticipantes.Model.M_Resposta;
 import com.MundoSenaiTDSN.ListaParticipantes.Repository.R_Pessoa;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,7 @@ public class S_Pessoa {
         this.r_pessoa = r_pessoa;
     }
 
-    public static String cadastrarPessoa(String nome, String cpf, String email, String telefone, String senha, String confSenha) {
+    public static M_Resposta cadastrarPessoa(String nome, String cpf, String email, String telefone, String senha, String confSenha) {
 
         String mensagem = "";
         boolean podeSalvar = true;
@@ -38,16 +40,33 @@ public class S_Pessoa {
             podeSalvar = false;
         }
 
+
         if (podeSalvar) {
             M_Pessoa m_pessoa = new M_Pessoa();
             m_pessoa.setNome(nome);
             m_pessoa.setCpf(Long.valueOf(S_LimpaNumero.limpar(cpf)));
             m_pessoa.setEmail(email);
-            m_pessoa.setTelefone(Long.valueOf(S_LimpaNumero.limpar(telefone)));
             m_pessoa.setSenha(senha);
-            r_pessoa.save(m_pessoa);
-            mensagem += "Pessoa cadastrada com sucesso";
-        }
-            return mensagem;
-        }
+
+            //Validacoes telefone
+            telefone = S_LimpaNumero.limpar(telefone);
+            if (telefone == "") {
+                m_pessoa.setTelefone(null);
+            } else {
+                m_pessoa.setTelefone(Long.valueOf(telefone));
+            }
+
+            //Trata excessão de cpf duplicado
+            try {
+                r_pessoa.save(m_pessoa);
+                mensagem += "Pessoa cadastrada com sucesso";
+            }catch (DataIntegrityViolationException e){
+                mensagem += e.getMessage();
+                podeSalvar = false;
+            }
+            }
+
+        M_Resposta m_resposta = new M_Resposta(podeSalvar, mensagem);
+        return m_resposta;
+    }
 }
