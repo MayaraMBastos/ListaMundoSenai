@@ -29,26 +29,26 @@
         <div class="input-group mb-3">
             <span class="input-group-text" id="sp_nome"><i class="fa-solid fa-user"></i></span>
             <input name="nome" id="nome" type="text" class="form-control" placeholder="Nome Completo" aria-label="Nome"
-                   aria-describedby="sp_nome">
+                   aria-describedby="sp_nome" th:value="${nome}">
         </div>
 
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="sp_cpf"><i class="fa-solid fa-id-card"></i></span>
             <input name="cpf" id="cpf" type="text" class="form-control" placeholder="CPF" aria-label="Cpf"
-                   aria-describedby="sp_cpf">
+                   aria-describedby="sp_cpf" th:value="${cpf}">
         </div>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="sp_telefone"><i class="fa-solid fa-square-phone"></i></span>
             <input name="telefone" id="telefone" type="tel" class="form-control" placeholder="Telefone"
                    aria-label="telefone"
-                   aria-describedby="sp_telefone">
+                   aria-describedby="sp_telefone" th:value="${telefone}">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="sp_email"><i class="fa-solid fa-envelope"></i></span>
             <input name="email" id="email" type="email" class="form-control" placeholder="E-mail" aria-label="Email"
-                   aria-describedby="sp_email">
+                   aria-describedby="sp_email" th:value="${email}">
         </div>
 
         <div class="row">
@@ -57,7 +57,7 @@
                     <span class="input-group-text" id="sp_senha"><i class="fa-solid fa-key"></i></span>
                     <input name="senha" id="senha" type="password" class="form-control" placeholder="Senha"
                            aria-label="senha"
-                           aria-describedby="sp_senha">
+                           aria-describedby="sp_senha" th:value="${senha}">
                 </div>
             </div>
             <div class="col-sm-6">
@@ -72,7 +72,8 @@
         <div class="row">
             <div class="col-sm-6">
                 <input value="Cadastrar" type="submit" class="btn btn-primary">
-
+            </div>
+        </div>
     </form>
 </div>
 </body>
